@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/a_encrypt.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.head{
+        background-color:#5DADE2;
+        color:#2980B9;
+        font-size:15px;
+        }
+        .data{
+        background-color:#D6EAF8 ;
+        font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+<h1 align="center" style="color:#7D3C98;font-size:35px;">Task view</h1><br>
+<div class="container-fluid">
+    <div class="row">
+<table class="table table-bordered">
+  <tr>
+  <th class="head"> Data</th>
+  <th class="head">Encryption key</th>
+  <th class="head">Username</th>
+  <th class="head">Encryption</th>
+  <th class="head">receiver</th>
+  <th class="head">Action</th></tr>
+    {% for view in result1 %}
+  <tr class="data">
+
+      <td class="data">{{view.data}}</td>
+      <td class="data">{{view.key}}</td>
+      <td class="data">{{view.username}}</td>
+      <td class="data">{{view.enc_data}}</td>
+      <td class="data">{{view.receiver}}</td>
+       <td>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="en_del" hidden>
+        <input type="submit" value=" Delete" name="del" style="background-color:#E74C3C ;">
+    </form></td>
+
+       <td>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="en_edit" hidden>
+        <input type="submit" value=" Edit" name="edit" style="background-color:#E74C3C ;">
+    </form></td></tr>
+    {% endfor %}
+</table>
+        </div>
+
+<br><br><br><br><br><br>
+    <br><br><br>
+</div>
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

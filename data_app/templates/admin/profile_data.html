@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        body{
+    background-image: url("static/image/a_encrypt.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.head{
+        background-color:#5DADE2;
+        color:white;
+        font-size:15px;
+        }
+        .data{
+        background-color:#D6EAF8;
+        font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+{% extends 'admin/a_navbar.html' %}
+
+{% block content %}
+<br>
+<h1 align="center" style="color:#2874A6;font-size:50px;">User account</h1>
+<br>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr align="center" class="head"><th>User's Name</th>
+  <th>User's Address</th>
+  <th>User's Email</th>
+  <th>User's Mobile</th>
+  <th>Username</th>
+  <th>User's Password</th></tr>
+    {% for display in result %}
+  <tr class="data">
+      <td>{{display.fullname}}</td>
+      <td>{{display.address}}</td>
+      <td>{{display.email}}</td>
+      <td>{{display.mobile}}</td>
+      <td>{{display.username}}</td>
+      <td>{{display.password}}</td></tr>
+    {% endfor %}
+</table>
+    </div>
+<br><br><br><br><br>
+
+{% include 'footer.html' %}
+{% endblock %}
+
+</body>
+</html>

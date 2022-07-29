@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/background.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+form{
+    border: 3px solid #f1f1f1;
+    width:60vh;
+    height: 60vh;
+    margin: 50px 500px;
+    border-radius: 7px;
+    background-color: rgb(252, 249, 246);
+}
+.login-text{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 780;
+    text-align: center;
+}
+.input-group{
+    margin:30px 50px;
+}
+.input_box{
+    height: 40px;
+    width: 270px;
+    text-align:left;
+    font-size: 17px;
+    border-radius: 24px;
+    color:rgb(85, 79, 79);
+    border-color: cornflowerblue;
+}
+.s_btn{
+    height: 40px;
+    width: 200px;
+    font-size: 19px;
+    margin-left: 40px;
+    border-radius: 24px;
+    border: none;
+    color:white;
+    background-color: cornflowerblue;
+}
+.login-register-text{
+    text-align: center;
+    font-weight: 600;
+    font-size: 17px;
+}
+.login-register-text a{
+    text-decoration: none;
+    color:rgb(68, 108, 182);
+}
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+ <div class="login-container">
+        <form class="login-email" method = "post">
+            {% csrf_token %}
+            <br>
+            <p class="login-text">Login</p>
+            {% csrf_token %}
+
+            <div class="input-group">
+                <input type="text" class="input_box" placeholder="Username" name="user" required>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input_box" placeholder="Password" name="pass" required>
+            </div>
+            <div class="input-group">
+                <button class="s_btn" name="log">Login</button>
+                {{msg}}
+            </div>
+            <p class="login-register-text">Don't have an account? <a href="/signup">Signup</a></p>
+        </form>
+    </div>
+
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>
+

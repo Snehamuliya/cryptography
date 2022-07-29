@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/a_encrypt.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.head{
+        background-color:#5DADE2;
+        color:white;
+        font-size:15px;
+        }
+        .data{
+        background-color:#D6EAF8;
+        font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'admin/a_navbar.html' %}
+{% block content %}
+<br>
+
+<h1 align="center" style="color:#2874A6;font-size:50px;">Task View</h1><br>
+<div class="container-fluid">
+    <div class="row">
+<table class="table table-bordered">
+  <tr class="head"><th>Task Id</th>
+  <th> Data</th>
+  <th>Encryption key</th>
+  <th>Username</th>
+  <th>Encryption</th>
+  <th>Receiver</th>
+  <th>Action</th></tr>
+    {% for view in result1 %}
+  <tr class="data">
+      <td>{{view.id}}</td>
+      <td>{{view.data}}</td>
+      <td>{{view.key}}</td>
+      <td>{{view.username}}</td>
+      <td>{{view.enc_data}}</td>
+      <td>{{view.receiver}}</td>
+       <td>
+    <form method="post" class="data">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="en_del" hidden>
+        <input type="submit" value=" Delete" name="del" style="background-color:#E74C3C ;">
+    </form></td></tr>
+    {% endfor %}
+</table>
+        </div>
+
+
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}
+
+</body>
+</html>

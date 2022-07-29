@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/encryption.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+form{
+    border: 3px solid #f1f1f1;
+    width:65vh;
+    height: 125vh;
+    margin: 55px 500px;
+    border-radius: 7px;
+    background-color: rgb(252, 249, 246);
+}
+.login-text{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 780;
+    text-align: center;
+}
+.input-group{
+    margin:19px 50px;
+}
+.input-label{
+    margin:10px 34px;
+    float:left;
+    font-weight:bold;
+}
+.input_box{
+    height: 40px;
+    width: 270px;
+    font-size: 17px;
+    text-align:left;
+    border-radius: 10px;
+    color:rgb(85, 79, 79);
+    border-color: rgb(237, 100, 164);
+}
+.e_btn{
+    height: 40px;
+    width: 180px;
+    font-size: 19px;
+
+    margin-left: 50px;
+    border-radius: 18px;
+    border: none;
+    color:white;
+    background-color: rgb(237, 100, 164);
+}
+.login-register-text{
+    text-align: center;
+    font-weight: 600;
+    font-size: 17px;
+}
+.login-register-text a{
+    text-decoration: none;
+    color:rgb(68, 108, 182);
+}
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+<div class="container">
+
+</div>
+ <div class="login-container">
+        <form class="login-email" method="post">
+            {% csrf_token %}<br>
+
+            <p class="login-text">Encrypt Data Update</p>
+            <div style="background-color:#ff7f7f;color:white;">
+            <p>Note :</p>
+            <p> Every time you update field you have to update key also <Br> for safety purpose</p>
+            </div>
+        {% for view in result1 %}
+            <div class="input-label">
+                Data :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" name="eid" value="{{view.id}}" hidden>
+                <input type="text" class="input_box" name="data" value="{{view.data}}" required>
+            </div>
+
+
+            <div class="input-label">
+                Key :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" name="key" value="{{view.key}}" required>
+            </div>
+
+
+            <div class="input-label">
+                Username :
+            </div>
+            <div class="input-group">
+                <input type="text" value="{{s_user}}" class="input_box" name="user" readonly required>
+            </div>
+
+
+            <div class="input-label">
+                Receiver :
+            </div>
+            <div class="input-group">
+                <input type="text"  class="input_box" name="rec" value="{{view.receiver}}" required>
+            </div>
+
+
+            <div class="input-label">
+                Encrypted Data :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box"  name="edata" value="{{view.enc_data}}" readonly>
+            </div>
+         {% endfor %}
+             {{msg}}
+            <div class="input-group">
+                <button class="e_btn" type="submit" name="update">Update</button>
+            </div>
+        </form>
+    </div>
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

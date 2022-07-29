@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/encryption.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+form{
+    border: 3px solid #f1f1f1;
+    width:65vh;
+    height: 108vh;
+    margin: 55px 500px;
+    border-radius: 7px;
+    background-color: rgb(252, 249, 246);
+}
+.login-text{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 780;
+    text-align: center;
+}
+.input-group{
+    margin:19px 50px;
+}
+.input-label{
+    margin:10px 34px;
+    float:left;
+    font-weight:bold;
+}
+.input_box{
+    height: 40px;
+    width: 270px;
+    font-size: 17px;
+    text-align:left;
+    border-radius: 10px;
+    color:rgb(85, 79, 79);
+    border-color: rgb(237, 100, 164);
+}
+.e_btn{
+    height: 40px;
+    width: 180px;
+    font-size: 19px;
+
+    margin-left: 50px;
+    border-radius: 18px;
+    border: none;
+    color:white;
+    background-color: rgb(237, 100, 164);
+}
+.login-register-text{
+    text-align: center;
+    font-weight: 600;
+    font-size: 17px;
+}
+.login-register-text a{
+    text-decoration: none;
+    color:rgb(68, 108, 182);
+}
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+
+ <div class="login-container">
+        <form class="login-email" method="post">
+            {% csrf_token %}<br>
+            <p class="login-text">Decrypt Data</p>
+
+            <div style="background-color:#ff7f7f;color:white;">
+            <p>Note :</p>
+            <p> Every time after Decrypt data you have to navigate <Br> to other page also  for safety purpose</p>
+            </div>
+
+
+            <div class="input-label">
+                Encrypted Data :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" name="enc" required>
+            </div>
+
+
+            <div class="input-label">
+                Key :
+            </div>
+            <div class="input-group">
+                <input type="password" class="input_box" name="key" required>{{emsg}}
+            </div>
+
+
+            <div class="input-label">
+                Username :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" value="{{s_user}}"  name="user" readonly required>
+            </div>
+
+
+            <div class="input-label">
+                Decrypted Data :
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box"  name="dec" value="{{decode}}">
+            </div>
+
+             {% for display in result %}
+            <div class="input-group">
+                <input type="text" class="input_box"  name="name" value="{{display.fullname}}" hidden>
+            </div>
+     {% endfor %}
+
+
+            <div class="input-group">
+                <button class="e_btn" type="submit">Decrypt</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+<!--
+<div class="col-lg-5 mx-auto border rounded pt-4">
+<h1 align="center">Decrypt Data</h1>
+    <br>
+<table align="center">
+<form method="post">
+    {% csrf_token %}
+    <tr><td>Encrypted Data : </td><td> <textarea rows="3" name="enc" required></textarea></td><td> </td></tr>
+    <tr><td> Key : </td><td> <input type = "text" name="key" required></td><td></td> </tr>
+    <tr><td>Decrypted data : </td><td> <textarea rows="3" name="dec">{{decode}}</textarea></td><td> </td></tr>
+    <tr><td> username : </td><td> <input type = "text" name="user" value="{{s_user}}"required ></td><td>{{error_msg}}</td></tr>
+    <tr><td><input type = "submit"></td></tr>
+</form>
+</table>
+</div> -->
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

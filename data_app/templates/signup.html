@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/background.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+form{
+    border: 3px solid #f1f1f1;
+    width:60vh;
+    height: 100vh;
+    margin: 15px 500px;
+    border-radius: 7px;
+    background-color: rgb(252, 249, 246);
+}
+.login-text{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 780;
+    text-align: center;
+}
+.input-group{
+    margin:24px 50px;
+}
+.input_box{
+    height: 40px;
+    text-align:left;
+    width: 270px;
+    font-size: 17px;
+    border-radius: 20px;
+    color:rgb(85, 79, 79);
+    border-color: cornflowerblue;
+}
+.s_btn{
+    height: 40px;
+    width: 180px;
+    font-size: 19px;
+    margin-left: 40px;
+    border-radius: 24px;
+    border: none;
+    color:white;
+    background-color: cornflowerblue;
+}
+.login-register-text{
+    font-weight: 600;
+    font-size: 17px;
+}
+.login-register-text a{
+    text-decoration: none;
+    color:rgb(68, 108, 182);
+}
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+ <div class="login-container">
+        <form class="login-email" method="post">
+            {% csrf_token %}
+            <br>
+            <p class="login-text">Create Account</p>
+            <div class="input-group">
+                <input type="text" class="input_box" placeholder="Name" pattern="([a-zA-Z] ?)+[a-zA-Z]" name="fname" required>
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" placeholder="Address" name="add" required>
+            </div>
+            <div class="input-group">
+                <input type="tel" class="input_box" placeholder="Phone" pattern="[0-9]{10}" maxlength="10" name="num" required>
+                {{pmsg}}
+            </div>
+            <div class="input-group">
+                <input type="email" class="input_box" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="mail" required>
+                {{emsg}}
+            </div>
+            <div class="input-group">
+                <input type="text" class="input_box" placeholder="Userame" name="user" required>
+                {{msg}}
+            </div>
+            <div class="input-group">
+                <input type="password" class="input_box" placeholder="Password" name="pass" required>
+            </div>
+            <div class="input-group">
+                <button class="s_btn" type="submit">Register</button>
+            </div>
+            <p class="login-register-text">Already have an account?<a href="/login"> Login</a></p>
+        </form>
+    </div>
+
+<!--<br>-->
+<!--<div class="col-lg-5 mx-auto border rounded pt-4">-->
+<!--<h1 align="center">Create Account</h1>-->
+<!--    <br>-->
+<!--<table align="center">-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <tr><td> Name = </td><td><input type = "text" name="fname" required></td><td>{{error_msg}}</td></tr>-->
+<!--    <tr><td>  Address =</td><td> <textarea rows="3" name="add" required></textarea></td><td> </td></tr>-->
+<!--    <tr><td> Phone =</td><td> <input type = "number" name="num" required></td><td></td> </tr>-->
+<!--    <tr><td> Email =</td><td> <input type = "text" name="mail" required></td><td></td> </tr>-->
+<!--    <tr><td> Username =</td><td> <input type = "text" name="user" required></td><td>{{msg}}</td></tr>-->
+<!--    <tr><td> Password =</td><td> <input type = "pass" name="pass" required></td><td> </td></tr>-->
+<!--    <tr><td><input type = "Submit"></td></tr>-->
+<!--</form>-->
+<!--</table>-->
+<!--</div>-->
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

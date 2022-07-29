@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+          body{
+    background-image: url("static/image/background.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+form{
+    border: 3px solid #f1f1f1;
+    width:60vh;
+    height: 55vh;
+    margin: 50px 500px;
+    border-radius: 7px;
+    background-color: rgb(252, 249, 246);
+}
+.login-text{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 780;
+
+}
+.input-group{
+    margin:30px 50px;
+}
+.input_box{
+    height: 40px;
+    width: 270px;
+    font-size: 17px;
+    text-align:left;
+    border-radius: 24px;
+    color:rgb(85, 79, 79);
+    border-color: cornflowerblue;
+}
+.al_btn{
+    height: 40px;
+    width: 200px;
+    font-size: 19px;
+    margin-left: 40px;
+    border-radius: 24px;
+    border: none;
+    color:white;
+    background-color: cornflowerblue;
+}
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+{% block content %}
+
+ <div class="login-container">
+        <form class="login-email" method="post">
+            {% csrf_token %}
+            <br>
+            <p class="login-text">Admin Login</p>
+            <div class="input-group">
+                <input type="text" class="input_box" placeholder="Username" name="user" required>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input_box" placeholder="Password" name="pass" required>
+            </div>
+            <div class="input-group">
+                <button class="al_btn" name="log">Login</button>
+            </div>
+        </form>
+    </div><br>
+
+<!--<div class="col-lg-5 mx-auto border rounded pt-4">-->
+<!--    <table>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+
+<!--    <tr><td>  Username =</td><td> <input type = "text" name="user" required></td></tr>-->
+<!--    <tr><td>  Password = </td><td><input type = "password" name="pass" required></td></tr>-->
+
+<!--    <tr><td><input type = "submit" name="log"></td></tr>-->
+<!--     <tr><td>{{msg}}</td></tr>-->
+<!--</form>-->
+<!--        </table>-->
+<!--</div>-->
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>
+

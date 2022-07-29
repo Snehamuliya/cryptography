@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+  *
+{
+    text-align: center;
+}
+/* Navbar  */
+.navbar-brand
+{
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    margin:0 1rem;
+}
+.navbar-brand span
+{
+    color: rgb(49, 247, 230);
+}
+.nav-item
+{
+    margin: 1rem;
+}
+.c1
+{
+    width: max-content;
+}
+.btn{
+  margin:5px;
+}
+
+/* Intro Section  */
+#intro
+{
+    background-image: url("static/image/home_intro.jpg") ;
+    color: white;
+    background-attachment: fixed;
+	background-size: cover;
+    padding-bottom: 7rem;
+    margin-right: none;
+}
+#intro h1
+{
+    padding: 10rem 0 2rem;
+    font-size: 5rem;
+    color:#E3FB47 ;
+    font-family: 'Righteous', cursive;
+}
+#intro h3
+{
+    padding-bottom: 3rem;
+    font-family: 'Righteous', cursive;
+}
+
+
+/* Templates Section  */
+#templates
+{
+    padding: 1rem;
+}
+#templates h1
+{
+    margin: 2rem 0;
+}
+#templates p
+{
+    font-weight: 500;
+    color: #566573;
+    text-align: justify;
+}
+.card
+{
+    margin: 1.5rem auto;
+}
+
+
+
+/* Features Section  */
+#features
+{
+    padding: 4rem 0;
+}
+.heading
+{
+    text-align: left;
+}
+.heading1
+{
+    text-align: left;
+    margin-left: 1rem;
+}
+.para1
+{
+    text-align: left;
+    padding: 0.5rem 1rem 1rem 4rem;
+}
+.para
+{
+    text-align: left;
+    padding: 0.5rem 1rem 1rem 4rem;
+}
+.fas
+{
+    color: rgb(51, 170, 170);
+    font-weight: 900;
+    font-size: 3rem;
+}
+
+/* Join Us Section  */
+#join
+{
+    background-color: rgb(45, 56, 63);
+    color:white;
+    padding: 4rem 0;
+}
+#join .row
+{
+    text-align: right;
+}
+#join h1
+{
+    padding: 2rem;
+}
+#join button
+{
+    margin-bottom: 2rem;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 0.5rem 2rem;
+}
+#join button:hover
+{
+    background-color: rgb(171, 235, 171);
+}
+#join p
+{
+    font-size: larger;
+    padding: 1rem;
+    line-height: 2;
+}
+
+/* Contact Section  */
+#contact
+{
+    padding: 3rem 0;
+}
+#contact h3
+{
+    padding-bottom: 1rem;
+    font-family: 'Righteous', cursive;
+}
+.input-group
+{
+    width: 40%;
+    margin: auto;
+}
+.social
+{
+    padding: 1rem;
+}
+.social a
+{
+    padding: 1rem;
+}
+.social a:nth-child(1)
+{
+    color: #4267B2;
+}
+.social a:nth-child(2)
+{
+    color: #1DA1F2;
+}
+.social a:nth-child(3)
+{
+    color: #ab4cd7;
+}
+.social a:nth-child(4)
+{
+    color: red;
+}
+.copy
+{
+    color: #5FD30B;
+}
+
+@media screen and (max-width: 992px)
+{
+    .nav-link
+    {
+        margin: auto;
+    }
+    .justify-content-end
+    {
+        text-align: center;
+    }
+}
+</style>
+
+
+</head>
+<body>
+    {% extends 'navbar.html' %}
+{% block content %}
+<!-- Intro Section  -->
+<section id="intro">
+  <div class="container-fluid">
+      <h1>Encrypt Planet</h1>
+
+      <h3>Makes Communication Easy and Secure</h3>
+  </div>
+</section>
+
+<!-- Templates Section  -->
+<section class="container" id="templates">
+  <h1>Why Encrypt Planet ?</h1>
+
+  <p>&emsp;&emsp;&emsp;It helps protect private information, sensitive data, and can enhance the security of communication between client apps and servers.In essence, when your data is encrypted, even if an unauthorized person or entity gains access to it, they will not be able to read it.</p>
+
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="static/image/ssl_tsl.png" class="card-img-top" height="200"
+                  alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Use SSL/TLS</h5>
+                  <p class="card-text">&emsp;&emsp;&emsp;The confidentiality and integrity protections offered by cryptographic protocols such as SSL/TLS can protect communications from malicious eavesdropping and tampering.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="static/image/protect_data.jpg" class="card-img-top" height="180"
+                  alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Protect Data at Rest</h5>
+                  <p class="card-text">&emsp;&emsp;&emsp;It can also be used to protect data at rest. Data on a removable disk or in a database can be encrypted to prevent disclosure of sensitive data should the physical media be lost or stolen.
+                  </p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+              <img src="static/image/confidential.jpg" class="card-img-top" height="160px"
+                  alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">Confidentiality</h5>
+                  <p class="card-text">&emsp;&emsp;&emsp;Confidentiality requires information to be secured from unauthorized access. This is accomplished by encrypting a sent message using a cryptographic algorithm with a key that's only known by the sender and recipient.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Join us Section  -->
+<section id="join">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <img width="100%" height="100%"
+                  src="static/image/home_joinus.jpg" alt="">
+          </div>
+          <div class="col-md-6 para-2">
+              <h1>Didn't know where to start</h1>
+
+              <button class="btn-lg">Sign Up</button><br>
+
+              <p>Sign up and join to our Encrypt Planet Community. And start your Data Encryption jouney with Encrypt Planet.
+                 </p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h3>If You Need Any Help</h3>
+  <h3>Contact Us : </h3>
+  <h5 style="color:#566573;">Email :- encryptplanet@gmail.com</h5>
+    <hr>
+</section>
+
+
+
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
+
+</body>
+</html>

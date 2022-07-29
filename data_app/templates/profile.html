@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+    background-image: url("static/image/a_encrypt.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+        .head{
+        background-color:#5DADE2;
+        color:#2980B9;
+        font-size:15px;
+        }
+        .data{
+        background-color:#D6EAF8;
+        font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+{% extends 'navbar.html' %}
+
+{% block content %}
+<br>
+<h1 align="center" style="color:#1F618D;font-size:35px;">User account</h1>
+<br>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr align="center"><th class="head">User name</th>
+  <th class="head">User address</th>
+  <th class="head">User email</th>
+  <th class="head">User mobile</th>
+  <th class="head">Username</th>
+  <th class="head">User Password</th></tr>
+    {% for display in result %}
+  <tr>
+      <td class="data">{{display.fullname}}</td>
+      <td class="data">{{display.address}}</td>
+      <td class="data">{{display.email}}</td>
+      <td class="data">{{display.mobile}}</td>
+      <td class="data">{{display.username}}</td>
+      <td class="data">{{display.password}}</td></tr>
+    {% endfor %}
+</table>
+    </div>
+<br><br><br><br><br><br><br>
+<br><br><br><br>
+{% include 'footer.html' %}
+{% endblock %}
+
+</body>
+</html>
